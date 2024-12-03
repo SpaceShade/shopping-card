@@ -1,10 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Card from './pages/shopping-card';
 function App() {
   return (
-    <div className="text-green-900">
-    hello
+    <div>
+      <Card/>
     </div>
   );
 }
