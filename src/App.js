@@ -1,9 +1,15 @@
-import Card from './pages/shopping-card';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Card from "./pages/shopping-card";
+import Cart from "./pages/cart";
+
 function App() {
   return (
-    <div>
-      <Card/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Card />} />
+      <Route path="/cart" element={<Cart />} />
+    </Routes>
+  </BrowserRouter>
   );
 }
 
