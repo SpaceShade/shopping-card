@@ -6,7 +6,9 @@ import search from '../assets/search.png'
 import user from '../assets/user.png'
 import bag from '../assets/shopping-bag.png' 
 import language from '../assets/language.png'
+import {useCart} from './cartContext'
 function Card() {
+    const {addToCart}= useCart();
     const [products]=useState([
         {id:1, name:"Line-Pattern Zipper Sweatshirt", price :200, type:"NEW", img:'https://th.bing.com/th/id/OIP.mkcNrFTGIuIH9gm4WZ0oTQHaLH?w=1200&h=1801&rs=1&pid=ImgDetMain'},
         {id:2, name:"Black Fantasy Sweatshirt", price :200, img:'https://th.bing.com/th/id/OIP.wbBjnw1bwiOocTkzBT45WQHaLG?w=1200&h=1799&rs=1&pid=ImgDetMain' },
@@ -90,7 +92,7 @@ function Card() {
                     <h3 className='text-lg font-bold text-black'>${product.price}</h3>
                 )}
                 </div>
-                    <button className='bg-blue-700 rounded-lg w-12 h-12 flex justify-center items-center -mt-6 '>
+                    <button onClick={()=> addToCart(product)} className='bg-blue-700 rounded-lg w-12 h-12 flex justify-center items-center -mt-6 '>
                     <img src={shoppingcart} alt="cart" className='h-10 w-10 p-2'/>
                     </button>
                 </div>
