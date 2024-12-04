@@ -53,7 +53,7 @@ function Card() {
             <a href='/'><img src={search} className='h-5 w-5'/></a>
             <a href='/'><img src={user} className='h-5 w-5'/></a>
             <a href='/'><img src={heart2} className='h-5 w-5'/></a>
-            <a href='./cart-page'><img src={bag} className='h-5 w-5'/></a>
+            <a href='./cart'><img src={bag} className='h-5 w-5'/></a>
                 <div className="flex items-center space-x-1">
                     <img src={language} className="h-5 w-5" alt="Language Icon" />
                     <select className="bg-white">
