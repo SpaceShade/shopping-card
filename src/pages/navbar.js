@@ -28,7 +28,7 @@ function Navbar (){
             </ul>
             <div className="flex space-x-6 items-center ml-auto mr-8">
               <a href="/"><img src={search} className="h-5 w-5" alt='search' /></a>
-              <a href="/"><img src={user} className="h-5 w-5" alt='user' /></a>
+              <a href="./user"><img src={user} className="h-5 w-5" alt='user' /></a>
               <a href="/"><img src={heart2} className="h-5 w-5" alt='heart2' /></a>
               <div className='relative'>
                 <a href="./cart">
