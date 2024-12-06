@@ -5,7 +5,7 @@ import { useCart } from './cartContext';
 import Navbar from './navbar';
 
 function Card() {
-    const { addToCart, totalItems } = useCart(); 
+    const { addToCart } = useCart(); 
     const [products] = useState([
         { id: 1, name: 'Line-Pattern Zipper Sweatshirt', price: 200, type: 'NEW', img: 'https://th.bing.com/th/id/OIP.mkcNrFTGIuIH9gm4WZ0oTQHaLH?w=1200&h=1801&rs=1&pid=ImgDetMain' },
         { id: 2, name: 'Black Fantasy Sweatshirt', price: 200, img: 'https://th.bing.com/th/id/OIP.wbBjnw1bwiOocTkzBT45WQHaLG?w=1200&h=1799&rs=1&pid=ImgDetMain' },
