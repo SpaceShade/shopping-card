@@ -53,7 +53,7 @@ function Navbar (){
     </BrowserView><MobileView>
         <div className="container">
           <div className="p-8">
-            <div className="navbar fixed top-0 left-0 w-full bg-white shadow-md z-50 flex items-center ">
+            <div className="navbar fixed top-0 bg-white left-0 w-full z-50 flex items-center ">
               <img
                 src="https://th.bing.com/th/id/OIP.FPqaiQ5CFCAcFMvmnlxcDwHaE4?rs=1&pid=ImgDetMain"
                 className="w-10 h-auto mx-6 my-5"
@@ -81,7 +81,7 @@ function Navbar (){
                   </select>
                 </div>
               </div>
-              <div className="absolute top-12 left-0 w-full bg-white shadow-md">
+              <div className="absolute -z-50 bg-white top-11 left-0 w-full  shadow-md">
                     <ul className="flex p-4 text-sm font-medium justify-between">
                       <li><a href="/" >ผู้หญิง</a></li>
                       <li><a href="/" >ผู้ชาย</a></li>
