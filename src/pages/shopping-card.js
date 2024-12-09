@@ -4,9 +4,10 @@ import heart from '../assets/heart.png';
 import { useCart } from './cartContext';
 import Navbar from './navbar';
 import { BrowserView, MobileView } from 'react-device-detect';
+import heartFilled from '../assets/heartFilled.png'
 function Card() {
     const { addToCart } = useCart(); 
-    const [products] = useState([
+    const [products, setProducts] = useState([
         { id: 1, name: 'Line-Pattern Zipper Sweatshirt', price: 200, type: 'NEW', img: 'https://th.bing.com/th/id/OIP.mkcNrFTGIuIH9gm4WZ0oTQHaLH?w=1200&h=1801&rs=1&pid=ImgDetMain' },
         { id: 2, name: 'Black Fantasy Sweatshirt', price: 200, img: 'https://th.bing.com/th/id/OIP.wbBjnw1bwiOocTkzBT45WQHaLG?w=1200&h=1799&rs=1&pid=ImgDetMain' },
         { id: 3, name: 'Brooklyn-NYC Sweatshirt', price: 420, promotion: 200, type: 'BEST SELLER', img: 'https://th.bing.com/th/id/OIP.I5qnGfHzTtmbwBgkwk82zgHaLH?w=1200&h=1800&rs=1&pid=ImgDetMain' },
@@ -18,6 +19,13 @@ function Card() {
         { id: 9, name: 'Letter Pattern Knitted Vest', price: 200, img: 'https://th.bing.com/th/id/OIP.vr_ip6LSpKZDNQDEWOTXTQHaLH?w=1200&h=1800&rs=1&pid=ImgDetMain' },
     ]);
 
+    const toggleFavorite = (id) => {
+        setProducts((prevProducts) =>
+            prevProducts.map((product) =>
+                product.id === id ? { ...product, isFavorite: !product.isFavorite } : product
+            )
+        );
+    };
     return (
         <div className="container">
             <Navbar/>
@@ -38,8 +46,13 @@ function Card() {
 
                     }'>{product.type}</button>
                 )}
-                </MobileView>
-                            <img src={heart} alt="heart" className="h-8 w-8 absolute right-6 top-6" />
+                </MobileView><img
+                                src={product.isFavorite ? heartFilled : heart}
+                                alt="heart"
+                                className="h-8 w-8 absolute right-6 top-6 cursor-pointer"
+                                onClick={() => toggleFavorite(product.id)}
+                            />
+                            {/* <img src={heart} alt="heart" className="h-8 w-8 absolute right-6 top-6" /> */}
                             <img src={product.img} alt={product.name} />
                             <h3 className="font-semibold text-lg mt-2">{product.name}</h3>
                             <h5 className="text-gray-500 text-sm mt-5">Price</h5>
