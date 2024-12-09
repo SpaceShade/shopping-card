@@ -3,7 +3,7 @@ import shoppingcart from '../assets/shopping-cart.png';
 import heart from '../assets/heart.png';
 import { useCart } from './cartContext';
 import Navbar from './navbar';
-
+import { BrowserView, MobileView } from 'react-device-detect';
 function Card() {
     const { addToCart } = useCart(); 
     const [products] = useState([
@@ -25,9 +25,20 @@ function Card() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10 w-9/12 h-auto ">
                     {products.map((product) => (
                         <div className="bg-white rounded-xl flex flex-col p-4 shadow-md relative" key={product.id}>
-                            {product.type && (
-                                <button className="absolute w-auto h-10 bg-purple-200 text-purple-700 font-bold rounded-md p-2">{product.type}</button>
-                            )}
+                <BrowserView>
+                {product.type &&( 
+                    <button className='absolute w-20 h-auto bg-purple-200 text-purple-700 font-bold rounded-md p-2
+
+                    }'>{product.type}</button>
+                )}
+                </BrowserView>
+                <MobileView>
+                {product.type &&( 
+                    <button className='absolute left-1 top-1 w-14 h-auto bg-purple-200 text-purple-700 font-bold text-xs rounded-md p-2
+
+                    }'>{product.type}</button>
+                )}
+                </MobileView>
                             <img src={heart} alt="heart" className="h-8 w-8 absolute right-6 top-6" />
                             <img src={product.img} alt={product.name} />
                             <h3 className="font-semibold text-lg mt-2">{product.name}</h3>
