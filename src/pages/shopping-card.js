@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import shoppingcart from '../assets/shopping-cart.png';
 import heart from '../assets/heart.png';
 import { useCart } from './cartContext';
+import { useFavorites } from './favContext'; 
 import Navbar from './navbar';
 import { BrowserView, MobileView } from 'react-device-detect';
-import heartFilled from '../assets/heartFilled.png'
+import heartFilled from '../assets/heartFilled.png';
+
 function Card() {
     const { addToCart } = useCart(); 
+    const { addToFavorites } = useFavorites(); 
     const [products, setProducts] = useState([
         { id: 1, name: 'Line-Pattern Zipper Sweatshirt', price: 200, type: 'NEW', img: 'https://th.bing.com/th/id/OIP.mkcNrFTGIuIH9gm4WZ0oTQHaLH?w=1200&h=1801&rs=1&pid=ImgDetMain', isFavorite: false },
         { id: 2, name: 'Black Fantasy Sweatshirt', price: 200, img: 'https://th.bing.com/th/id/OIP.wbBjnw1bwiOocTkzBT45WQHaLG?w=1200&h=1799&rs=1&pid=ImgDetMain', isFavorite: false },
@@ -19,40 +22,38 @@ function Card() {
         { id: 9, name: 'Letter Pattern Knitted Vest', price: 200, img: 'https://th.bing.com/th/id/OIP.vr_ip6LSpKZDNQDEWOTXTQHaLH?w=1200&h=1800&rs=1&pid=ImgDetMain', isFavorite: false },
     ]);
 
-    const toggleFavorite = (id) => {
-        setProducts((prevProducts) =>
-            prevProducts.map((product) =>
-                product.id === id ? { ...product, isFavorite: !product.isFavorite } : product
-            )
-        );
+
+    const toggleFavorite = (product) => {
+        addToFavorites(product); 
     };
+
     return (
         <div className="container">
-            <Navbar/>
+            <Navbar />
             <div className="flex justify-center items-center">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10 w-9/12 h-auto ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10 w-9/12 h-auto">
                     {products.map((product) => (
                         <div className="bg-white rounded-xl flex flex-col p-4 shadow-md relative" key={product.id}>
-                <BrowserView>
-                {product.type &&( 
-                    <button className='absolute w-20 h-auto bg-purple-200 text-purple-700 font-bold rounded-md p-2
-
-                    }'>{product.type}</button>
-                )}
-                </BrowserView>
-                <MobileView>
-                {product.type &&( 
-                    <button className='absolute left-1 top-1 w-14 h-auto bg-purple-200 text-purple-700 font-bold text-xs rounded-md p-2
-
-                    }'>{product.type}</button>
-                )}
-                </MobileView><img
+                            <BrowserView>
+                                {product.type && (
+                                    <button className="absolute w-20 h-auto bg-purple-200 text-purple-700 font-bold rounded-md p-2">
+                                        {product.type}
+                                    </button>
+                                )}
+                            </BrowserView>
+                            <MobileView>
+                                {product.type && (
+                                    <button className="absolute left-1 top-1 w-14 h-auto bg-purple-200 text-purple-700 font-bold text-xs rounded-md p-2">
+                                        {product.type}
+                                    </button>
+                                )}
+                            </MobileView>
+                            <img
                                 src={product.isFavorite ? heartFilled : heart}
                                 alt="heart"
                                 className="h-8 w-8 absolute right-6 top-6 cursor-pointer"
-                                onClick={() => toggleFavorite(product.id)}
+                                onClick={() => toggleFavorite(product)} 
                             />
-                            {/* <img src={heart} alt="heart" className="h-8 w-8 absolute right-6 top-6" /> */}
                             <img src={product.img} alt={product.name} />
                             <h3 className="font-semibold text-lg mt-2">{product.name}</h3>
                             <h5 className="text-gray-500 text-sm mt-5">Price</h5>
