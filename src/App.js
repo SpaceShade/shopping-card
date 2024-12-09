@@ -7,6 +7,7 @@ import User from "./pages/user"
 import Phone from "./pages/login-phone"
 import Email from "./pages/login-email"
 import SignUp from "./pages/sign-up";
+import Fav from './pages/fav-page'
 function App() {
   return (
     <CartProvider>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/phone" element={<Phone />} />
       <Route path="/email" element={<Email />} />
       <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/favorites" element={<Fav />} />
     </Routes>
   </BrowserRouter>
   </CartProvider>
