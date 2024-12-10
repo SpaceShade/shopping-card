@@ -6,7 +6,8 @@ import { useCart } from './cartContext';
 // import { useFavorites } from './favContext';
 import Navbar from './navbar';
 import { BrowserView, MobileView } from 'react-device-detect';
-
+import Footer from './footer';
+import Button from '../component/button';
 function Card() {
     const { addToCart, toggleFavorite ,favorites } = useCart();
     // const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
@@ -76,6 +77,24 @@ function Card() {
                     ))}
                 </div>
             </div>
+            <h1 class="mx-8 mb-3 text-sm">ผู้ชาย</h1>
+      <p class="mx-8 mb-3 text-sm" >ให้คุณผู้ชายอัปเดตสไตล์ใหม่ ๆ ประจำซีซันไปกับ H&M ค้นพบไอเทมที่สามารถเลือกสวมใส่ในชีวิตประจำวันมากมาย เช่น เสื้อและเสื้อยืดหลากหลายสไตล์ หรือชุดสวมใส่อยู่บ้านและชุดชั้นในผู้ชายที่สวมใส่สบาย หากคุณกำลังมองหาสไตล์เป็นทางการสำหรับงานเลี้ยงที่กำลังมาถึง ต้องมาเลือกช้อปเสื้อเบลเซอร์และชุดสูทสุดเนี้ยบ สามารถแมตช์คู่กับกางเกงชิโน่ กางเกงจ็อกเกอร์ และกางเกงคาร์โก้ที่มีหลากหลายสีสันให้เลือก หรือใครกำลังมองหาไอเทมเดนิมสุดชิค เราก็รวบรวมกางเกงยีนส์ผู้ชายหลากหลายดีไซน์เพื่อให้เหมาะกับสไตล์ของคุณ ครบครันทั้งทรงสกินนี่ ทรงตรง และทรงขาสอบ และอื่น ๆ อีกมากมาย แมตช์คู่กับเสื้อเชิ้ตทรงหลวมสุดอินเทรนด์หรือเสื้อเชิ้ตเดนิม หรือในวันที่มีอากาศสบาย ๆ เราก็มัดรวมเสื้อแจ็คเก็ตและเสื้อโค้ท อย่างแจ็คเก็ตพัฟเฟอร์ และเสื้อแจ็คเก็ตบอมเบอร์ในโทนสีประจำซีซัน 
+      </p>
+        <div className='my-16 mx-8 flex space-x-3'>
+        <Button text={"Print"}/>
+        <Button text={"Utility"}/>
+        <Button text={"Pastel colours"}/>
+        <Button text={"Embroidered"}/>
+        <Button text={"Graphic"}/>
+        <Button text={"Tie-dye"}/>
+        <Button text={"Sequin"}/>
+        <Button text={"Grunge"}/>
+        </div>
+        <div className='flex space-x-1 mx-8 '> 
+        <a href='/' className='my-16 text-sm'>HM.com</a>
+        <h1 className='my-16 text-sm'>/ผู้ชาย</h1>
+        </div>
+            <Footer/>
         </div>
     );
 }

@@ -45,7 +45,8 @@ function Favorites() {
 console.log("Fav", favorites);
 return (
   <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-4">Your Favorites</h1>
+    <Nav/>
+    <h1 className="text-2xl font-bold mb-4 mt-8">Your Favorites</h1>
     {favorites.length === 0 ? (
       <p>No favorite products yet.</p>
     ) : (
