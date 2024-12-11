@@ -22,10 +22,22 @@ export const FavoritesProvider = ({ children }) => {
             return prevFavorites;
         });
     };
-
+    // const removeFromFavorites = (id) => {
+    //     setFavorites((prevFavorites) =>
+    //         prevFavorites.filter((item) => item.id !== id)
+    //     );
+    // };
     const removeFromFavorites = (id) => {
-        setFavorites(favorites.filter((item) => item.id !== id));
+        setFavorites((prevFavorites) => {
+            const updatedFavorites = prevFavorites.filter((item) => item.id !== id);
+            return updatedFavorites;
+        });
     };
+    
+    
+    // const removeFromFavorites = (id) => {
+    //     setFavorites(favorites.filter((item) => item.id !== id));
+    // };
 
     return (
         <FavoritesContext.Provider value={{ favorites, addToFavorites, removeFromFavorites }}>
